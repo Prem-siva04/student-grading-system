@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Grades</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        display: inline-block;
+    }
+
+    button {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-top: 15px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #218838;
+    }
+
+    #gradeList {
+        margin-top: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .error {
+        color: red;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Add Grades</h1>
+        <form id="gradeForm">
+            <label for="studentName">Student Name</label>
+            <input type="text" id="studentName" name="studentName" required>
+            <div class="error" id="studentNameError"></div>
+            <br>
+            <label for="Subject">Subject</label>
+            <input type="text" id="Subject" name="Subject" required>
+            <div class="error" id="subjectError"></div>
+            <br>
+            <label for="grade">Grade</label>
+            <input type="number" id="grade" name="grade" min="0" max="100" required>
+            <div class="error" id="gradeError"></div>
+
+            <button type="submit">Add Grade</button>
+        </form>
+        <div id="gradeList">
+            <h2>Grades List</h2>
+            <ul id="grades"></ul>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('gradeForm');
+        const studentNameInput = document.getElementById('studentName');
+        const subjectInput = document.getElementById('Subject');
+        const gradeInput = document.getElementById('grade');
+        const studentNameError = document.getElementById('studentNameError');
+        const subjectError = document.getElementById('subjectError');
+        const gradeError = document.getElementById('gradeError');
+        const gradesList = document.getElementById('grades');
+    
+        let currentEditIndex = null;
+    
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let isValid = true;
+    
+            if (studentNameInput.value.trim() === '') {
+                studentNameError.textContent = 'Please enter student name';
+                isValid = false;
+            } else {
+                studentNameError.textContent = '';
+            }
+    
+            if (subjectInput.value.trim() === '') {
+                subjectError.textContent = 'Please enter subject';
+                isValid = false;
+            } else {
+                subjectError.textContent = '';
+            }
+    
+            if (gradeInput.value.trim() === '' || gradeInput.value < 0 || gradeInput.value > 100) {
+                gradeError.textContent = 'Please enter valid grade';
+                isValid = false;
+            } else {
+                gradeError.textContent = '';
+            }
+    
+            if (isValid) {
+                const grade = {
+                    studentName: studentNameInput.value,
+                    subject: subjectInput.value,
+                    grade: gradeInput.value
+                };
+    
+                if (currentEditIndex !== null) {
+                    // Update existing entry
+                    const existingEntry = gradesList.children[currentEditIndex];
+                    existingEntry.textContent = `${grade.studentName} - ${grade.subject} - ${grade.grade}`;
+                    const editButton = document.createElement('button');
+                    editButton.textContent = 'Edit';
+                    editButton.onclick = () => editGrade(currentEditIndex);
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.onclick = () => deleteGrade(existingEntry);
+                    existingEntry.appendChild(editButton);
+                    existingEntry.appendChild(deleteButton);
+                    currentEditIndex = null;
+                } else {
+                    // Create new entry
+                    const li = document.createElement('li');
+                    li.textContent = `${grade.studentName} - ${grade.subject} - ${grade.grade}`;
+                    const editButton = document.createElement('button');
+                    editButton.textContent = 'Edit';
+                    editButton.onclick = () => editGrade(gradesList.children.length);
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.onclick = () => deleteGrade(li);
+                    li.appendChild(editButton);
+                    li.appendChild(deleteButton);
+                    gradesList.appendChild(li);
+                }
+    
+                // Clear the input fields
+                studentNameInput.value = '';
+                subjectInput.value = '';
+                gradeInput.value = '';
+            }
+        });
+    
+        function editGrade(index) {
+            const entry = gradesList.children[index];
+            const [studentName, subject, grade] = entry.textContent.split(' - ');
+            studentNameInput.value = studentName;
+            subjectInput.value = subject;
+            gradeInput.value = grade.split(' ')[2]; // Get the grade value
+            currentEditIndex = index;
+        }
+    
+        function deleteGrade(entry) {
+            gradesList.removeChild(entry);
+        }
+    </script>
+</body>
+</html>

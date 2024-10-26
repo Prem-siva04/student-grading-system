@@ -10,6 +10,10 @@ def homepage():
 def loginpage():
     return render_template('login.html')
 
+
+
+
+
 def grade(a):
     if a<=100 or a>=90:
         print("grade is  A")
@@ -20,7 +24,7 @@ def grade(a):
     elif a<=50 or a>=25:
         print("grade is D")
     else:
-        print("student is failed")         
+        print("")         
 
 
 
