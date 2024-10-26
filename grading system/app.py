@@ -10,6 +10,10 @@ def homepage():
 def loginpage():
     return render_template('login.html')
 
+@app.route('/AddGrades')
+def  addgrades():
+    return render_template('Add_Grades.html')
+
 
 
 
