@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Login</title>
     <style>
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -21,6 +22,7 @@
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             width: 300px;
+            margin-right: 10%;
         }
         h2 {
             text-align: center;
@@ -75,13 +77,15 @@
     </style>
 </head>
 <body>
-    <nav>
+    <nav style="margin-bottom: 45%;">
+        <a href="{{url_for('homepage')}}">Home</a>
         <a href="{{url_for('AddStudents')}}">Add  Student</a>
         <a href="{{url_for('addgrades')}}">Add  Grades</a>
         <a href="{{url_for('viewgrades')}}">View  Grades</a>
         <a href="{{url_for('loginpage')}}">login/SignIn</a>
 
     </nav>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2W2dN5I3P0mMEUX92Yee4DpxRIT0mSjHSOg&s" alt="">
 
     <div class="login-container">
         <h2>Student Login</h2>
