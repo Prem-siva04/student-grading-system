@@ -20,6 +20,11 @@ def viewgrades():
 
 
 
+@app.route('/AddStudents')
+def AddStudents():
+    return render_template('Add_Student.html')
+
+
 
 
 
