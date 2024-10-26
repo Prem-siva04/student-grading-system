@@ -29,8 +29,27 @@
             text-align: center;
             background-color: #2e8b57;
         }
+        nav {
+            text-align: right;
+            margin: 20px;
+        }
+    nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #000000;         }
+        nav a:hover {
+            text-decoration: underline;
+            background-color: rgb(174, 190, 186);
+        }
 </style>
 <body>
+    <nav>
+        <a href="{{url_for('AddStudents')}}">Add  Student</a>
+        <a href="{{url_for('addgrades')}}">Add  Grades</a>
+        <a href="{{url_for('viewgrades')}}">View  Grades</a>
+        <a href="{{url_for('loginpage')}}">login/SignIn</a>
+
+    </nav>
     <div class="container">
         <h1>Student Grades</h1>
         <table>

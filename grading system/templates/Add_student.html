@@ -19,8 +19,27 @@
             margin: 5px;
             padding: 10px;
         }
+        nav {
+            text-align: right;
+            margin: 20px;
+        }
+    nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #000000;         }
+        nav a:hover {
+            text-decoration: underline;
+            background-color: rgb(174, 190, 186);
+        }
 </style>
 <body>
+    <nav>
+        <a href="{{url_for('AddStudents')}}">Add  Student</a>
+        <a href="{{url_for('addgrades')}}">Add  Grades</a>
+        <a href="{{url_for('viewgrades')}}">View  Grades</a>
+        <a href="{{url_for('loginpage')}}">login/SignIn</a>
+
+    </nav>
     <h1> About student</h1>
     <form id="studentForm">
         <input type="text" id="studentId" placeholder="Student ID" required>

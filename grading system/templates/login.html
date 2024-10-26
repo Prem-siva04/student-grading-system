@@ -60,9 +60,28 @@
             font-size: 12px;
             color: #777;
         }
+        nav {
+            text-align: right;
+            margin: 20px;
+        }
+    nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #000000;         }
+        nav a:hover {
+            text-decoration: underline;
+            background-color: rgb(174, 190, 186);
+        }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="{{url_for('AddStudents')}}">Add  Student</a>
+        <a href="{{url_for('addgrades')}}">Add  Grades</a>
+        <a href="{{url_for('viewgrades')}}">View  Grades</a>
+        <a href="{{url_for('loginpage')}}">login/SignIn</a>
+
+    </nav>
 
     <div class="login-container">
         <h2>Student Login</h2>
