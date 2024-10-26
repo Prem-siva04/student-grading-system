@@ -5,7 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+     body h1{
+        color: #000;
+        text-align: center;
+        background-color: aqua;
+    }
+    form {
+            margin: 20px auto;
+            text-align: center;
+        }
+        input {
+            margin: 5px;
+            padding: 10px;
+        }
+</style>
 <body>
+    <h1> About student</h1>
+    <form id="studentForm">
+        <input type="text" id="studentId" placeholder="Student ID" required>
+        <input type="text" id="studentName" placeholder="Name" required>
+        <input type="number" id="studentAge" placeholder="Age" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="telephone" id="number" placeholder="phone number" required>
+        <br>
     
 </body>
 </html>
