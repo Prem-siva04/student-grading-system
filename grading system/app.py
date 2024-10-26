@@ -10,9 +10,7 @@ def homepage():
 def loginpage():
     return render_template('login.html')
 
-@app.route('/addgrade')
-def addgradepage ():
-    return render_template('Add Grade.html')
+
 
 
 
@@ -26,7 +24,7 @@ def grade(a):
     elif a<=50 or a>=25:
         print("grade is D")
     else:
-        print("student is failed")         
+        print("")         
 
 
 
