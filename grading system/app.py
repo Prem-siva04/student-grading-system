@@ -4,15 +4,11 @@ app=Flask(__name__)
 
 @app.route('/')
 def homepage():
-    return render_template('home.html')
-
-@app.route('/color')
-def index():
     return render_template('index.html')
 
-@app.route('game')
-def game():
-    return render_template('game.html')
+@app.route('/login')
+def loginpage():
+    return render_template('login.html')
 
 def grade(a):
     if a<=100 or a>=90:
