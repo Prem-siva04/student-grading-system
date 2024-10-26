@@ -14,6 +14,11 @@ def loginpage():
 def  addgrades():
     return render_template('Add_Grades.html')
 
+@app.route('/ViewGrades')
+def viewgrades():
+    return  render_template('View_Grades.html')
+
+
 
 
 
