@@ -24,13 +24,42 @@
     nav a {
             margin: 0 15px;
             text-decoration: none;
-            color: #2e8b57;         }
+            color: #000000;         }
         nav a:hover {
             text-decoration: underline;
             background-color: blue;
         }
         body{
             background-color: rgb(206, 115, 31);
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #2e8b57;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        form {
+            margin: 20px auto;
+            text-align: center;
+        }
+        input {
+            margin: 5px;
+            padding: 10px;
+        }
+        body label{
+            
         }
 </style>
 <body>
@@ -39,8 +68,39 @@
         <a href="./Add student.html">Add  Student</a>
         <a href="./Add Grades.html">Add  Grades</a>
         <a href="./View Grades.html">View  Grades</a>
+        <a href="{login}">login</a>
 
     </nav>
+    <div>
+        <h1>Student sign up</h1>
+    
+        <form id="studentForm">
+            <input type="text" id="studentId" placeholder="Student ID" required>
+            <input type="text" id="studentName" placeholder="Name" required>
+            <input type="number" id="studentAge" placeholder="Age" required>
+            <br>
+            <label for="">Enter Subject Marks:</label>
+            <br>
+            <input type="number" id="subject1" placeholder="TELUGU">
+            <br>
+            <input type="number" id="subject1" placeholder="HINDI">
+            <br>
+            <input type="number" id="subject1" placeholder="ENGLISH">
+            <br>
+            <input type="number" id="subject1" placeholder="MATHMATICS">
+            <br>
+            <input type="number" id="subject1" placeholder="PHYSICS">
+            <br>
+            <input type="number" id="subject1" placeholder="CHEMISTY">
+            <br>
+            <input type="number" id="subject1" placeholder="BIOLOGY">
+            <br>
+            <input type="number" id="subject1" placeholder="SOCIAl">
+            <br>
+            <button type="submit">Add Student</button>
+        </form>
+    
+    </div>
 
 
 </body>
